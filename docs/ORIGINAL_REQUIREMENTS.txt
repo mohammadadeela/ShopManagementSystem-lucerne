@@ -1,0 +1,2632 @@
+You are a senior Java desktop software architect, JavaFX UI/UX designer, MySQL database engineer, security engineer, and QA tester.
+
+I am giving you my complete Lucerne Boutique database project.
+
+Your job is to inspect the entire uploaded project, repair all existing problems, reorganize the architecture, redesign the interface, improve the MySQL database, add missing professional business features, test everything, and return one complete working ZIP project.
+
+This is not a request for suggestions or code snippets.
+
+You must directly modify the uploaded project files and return the final working project.
+
+==================================================
+1. MANDATORY TECHNOLOGY REQUIREMENTS
+==================================================
+
+Keep the project using:
+
+- Java
+- JavaFX
+- JDBC
+- javax packages where already required
+- MySQL
+- MySQL Connector/J
+- JavaFX CSS
+- PreparedStatement
+- the existing project language
+- the existing SQL database structure where useful
+- the same database name unless changing it is absolutely necessary
+
+Do not convert the project to:
+
+- Spring Boot
+- React
+- Angular
+- JavaScript
+- TypeScript
+- Python
+- C#
+- web application
+- mobile application
+- another programming language
+- another database system
+
+Do not use:
+
+- Hibernate
+- JPA
+- Spring
+- Scene Builder
+- FXML unless the existing project already depends on it
+- fake APIs
+- fake statistics
+- placeholder pages
+- pseudocode
+- unfinished methods
+- empty button actions
+- TODO sections
+
+The final project must remain a normal Java desktop database application using JavaFX and MySQL.
+
+The complete final project must compile and run.
+
+==================================================
+2. MAIN OBJECTIVE
+==================================================
+
+Transform the existing project into a professional boutique management and database system.
+
+The project must look and behave like a real business management application, not a collection of disconnected university demonstration pages.
+
+The improved system must contain:
+
+- professional dashboards
+- professional UI/UX
+- role-based navigation
+- sales management
+- transaction management
+- point of sale
+- products
+- categories
+- inventory
+- warehouses
+- branches
+- customers
+- employees
+- users
+- roles and permissions
+- expenses
+- discounts
+- online orders
+- returns and exchanges
+- stock requests
+- stock transfers
+- reports
+- charts
+- advanced filters
+- audit logs
+- notifications
+- system settings
+- database maintenance
+- proper validation
+- secure database operations
+- complete error handling
+- export functions
+- correct financial calculations
+
+==================================================
+3. ANALYZE THE CURRENT PROJECT FIRST
+==================================================
+
+Before changing anything:
+
+1. Read every Java file.
+2. Read every CSS file.
+3. Read the entire SQL file.
+4. Inspect the project structure.
+5. Identify the project entry point.
+6. Identify the existing database connection classes.
+7. Identify every existing database table.
+8. Identify every existing foreign key.
+9. Identify every trigger.
+10. Identify every stored procedure.
+11. Identify every view.
+12. Identify every user role.
+13. Identify every existing page.
+14. Identify duplicate pages.
+15. Identify useless pages.
+16. Identify empty pages.
+17. Identify broken buttons.
+18. Identify duplicate methods.
+19. Identify unsafe SQL.
+20. Identify compilation errors.
+21. Identify Java columns that do not exist in MySQL.
+22. Identify MySQL columns that are incorrectly used in Java.
+23. Identify database operations mixed directly into UI code.
+24. Identify methods that create or alter tables while the application runs.
+25. Identify hardcoded values.
+26. Identify incorrect financial calculations.
+27. Identify incorrect role restrictions.
+28. Identify pages that load too much data.
+29. Identify possible MySQL Error 1442 trigger problems.
+30. Identify all unfinished features.
+
+Create a short implementation plan internally, then immediately implement it.
+
+Do not stop after the analysis.
+
+==================================================
+4. CREATE A BACKUP
+==================================================
+
+Before editing:
+
+- preserve the original project
+- create a backup folder or backup copy
+- do not delete important existing business data
+- preserve compatible IDs
+- preserve useful existing records
+- preserve existing working functions unless they are replaced by a better implementation
+
+==================================================
+5. CLEAN PROFESSIONAL ARCHITECTURE
+==================================================
+
+Do not keep the application inside one very large MainFX.java file.
+
+Refactor the project into a clean structure similar to:
+
+src/
+    app/
+        Main.java
+        AppLauncher.java
+        AppSession.java
+        NavigationManager.java
+
+    config/
+        DatabaseConfig.java
+        DatabaseConnection.java
+        ApplicationConfig.java
+
+    model/
+        User.java
+        Role.java
+        Permission.java
+        Employee.java
+        Customer.java
+        Product.java
+        Category.java
+        Subcategory.java
+        ProductSize.java
+        ProductColor.java
+        Branch.java
+        Warehouse.java
+        Inventory.java
+        Sale.java
+        SaleItem.java
+        Payment.java
+        Discount.java
+        Expense.java
+        Order.java
+        OrderItem.java
+        ReturnRequest.java
+        ExchangeRequest.java
+        StockRequest.java
+        StockTransfer.java
+        Supplier.java
+        PurchaseOrder.java
+        Notification.java
+        AuditLog.java
+        SystemSetting.java
+        DailyClosing.java
+
+    dao/
+        UserDAO.java
+        RoleDAO.java
+        PermissionDAO.java
+        EmployeeDAO.java
+        CustomerDAO.java
+        ProductDAO.java
+        CategoryDAO.java
+        InventoryDAO.java
+        SaleDAO.java
+        OrderDAO.java
+        ReturnDAO.java
+        ExpenseDAO.java
+        StockRequestDAO.java
+        SupplierDAO.java
+        DashboardDAO.java
+        ReportDAO.java
+        NotificationDAO.java
+        AuditLogDAO.java
+        SettingsDAO.java
+
+    service/
+        AuthenticationService.java
+        AuthorizationService.java
+        UserService.java
+        ProductService.java
+        InventoryService.java
+        SaleService.java
+        OrderService.java
+        ReturnService.java
+        ExpenseService.java
+        StockService.java
+        ReportService.java
+        NotificationService.java
+        AuditService.java
+        ValidationService.java
+        ExportService.java
+
+    ui/
+        login/
+        layout/
+        dashboard/
+        sales/
+        pos/
+        products/
+        inventory/
+        orders/
+        customers/
+        employees/
+        users/
+        expenses/
+        suppliers/
+        reports/
+        audit/
+        notifications/
+        settings/
+        shared/
+        dialogs/
+        components/
+
+    util/
+        CurrencyUtil.java
+        DateUtil.java
+        ValidationUtil.java
+        AlertUtil.java
+        ExportUtil.java
+        PasswordUtil.java
+        NumberUtil.java
+        LoggerUtil.java
+
+    resources/
+        css/
+            app.css
+            tables.css
+            dialogs.css
+            charts.css
+        images/
+        icons/
+
+The exact package names may be adjusted to match the existing project.
+
+However:
+
+- do not keep all functionality in MainFX
+- do not duplicate database connection classes
+- do not duplicate utility methods
+- do not place long SQL queries directly inside UI classes
+- do not mix business logic with UI rendering
+- do not mix database schema creation with page loading
+
+==================================================
+6. PROFESSIONAL UI/UX DESIGN
+==================================================
+
+Create a complete professional JavaFX interface.
+
+Use one consistent visual identity inspired by a modern women’s boutique management system.
+
+Color direction:
+
+- warm white background
+- soft cream cards
+- light beige sections
+- dark brown primary text
+- muted rose accent
+- subtle caramel accent
+- soft gray secondary text
+- light borders
+- professional status colors
+- no excessive bright colors
+- no childish appearance
+
+The design must include:
+
+- consistent margins
+- consistent padding
+- consistent spacing
+- rounded cards
+- subtle shadows
+- clear visual hierarchy
+- readable typography
+- large clear page titles
+- helpful subtitles
+- professional buttons
+- modern form controls
+- professional ComboBox styling
+- professional DatePicker styling
+- professional TableView styling
+- professional dialogs
+- professional charts
+- clean empty states
+- loading states
+- error states
+- success states
+- warning states
+- disabled states
+- hover states
+- selected states
+- focus states
+
+Use reusable CSS classes.
+
+Do not use hundreds of repeated inline styles.
+
+Create CSS files and reusable UI components.
+
+==================================================
+7. MAIN APPLICATION LAYOUT
+==================================================
+
+Create a professional desktop layout containing:
+
+LEFT SIDEBAR
+
+- Lucerne Boutique logo or text
+- application name
+- logged-in user role
+- grouped navigation
+- icons where appropriate
+- selected page highlight
+- hover effects
+- collapsible sidebar
+- submenu support
+- logout button
+- no overcrowded list
+
+TOP BAR
+
+- current page title
+- breadcrumb
+- global search where useful
+- branch or warehouse selector for authorized users
+- notification icon with unread count
+- current date
+- logged-in user name
+- profile menu
+- refresh action
+
+MAIN CONTENT AREA
+
+- page title
+- page description
+- summary cards
+- filter area
+- action buttons
+- charts
+- tables
+- pagination
+- loading indicator
+- empty-state message
+- details dialog or side panel
+
+STATUS BAR OR FOOTER
+
+- database connection status
+- logged-in username
+- application version
+- last refresh time
+
+==================================================
+8. RESPONSIVE DESKTOP BEHAVIOR
+==================================================
+
+The application must resize professionally.
+
+Support at least:
+
+- 1366×768
+- 1440×900
+- 1920×1080
+
+Requirements:
+
+- charts resize with the window
+- tables resize properly
+- controls do not overlap
+- text is not cut unnecessarily
+- pages use ScrollPane where needed
+- sidebar can collapse
+- summary cards wrap when needed
+- dialogs fit on normal screens
+- the window has a reasonable minimum size
+
+==================================================
+9. ACCESSIBILITY AND USABILITY
+==================================================
+
+Add:
+
+- readable font sizes
+- proper contrast
+- clear labels
+- keyboard navigation
+- Enter to submit appropriate forms
+- Escape to close dialogs
+- useful tooltips
+- confirmation before destructive actions
+- visible focus state
+- proper tab order
+- clear validation messages
+- no color-only status meaning
+- status text with status colors
+- consistent date and currency formatting
+- friendly empty-state messages
+
+==================================================
+10. ROLE-BASED NAVIGATION
+==================================================
+
+Use the following roles:
+
+- OWNER
+- ADMIN if needed
+- MANAGER
+- CASHIER
+- WAREHOUSE
+- CUSTOMER
+
+OWNER NAVIGATION
+
+1. Dashboard
+2. Sales and Transactions
+3. Orders
+4. Products
+5. Inventory
+6. Customers
+7. Employees
+8. Expenses
+9. Discounts
+10. Suppliers and Purchasing
+11. Stock Management
+12. Reports and Analytics
+13. Administration
+14. Settings
+
+ADMINISTRATION SUBMENU
+
+1. Manage Users
+2. Roles and Permissions
+3. Audit Log
+4. Notifications
+5. Database Maintenance
+6. System Settings
+
+MANAGER NAVIGATION
+
+1. Dashboard
+2. Branch Sales
+3. Orders
+4. Branch Inventory
+5. Products
+6. Customers
+7. Employees
+8. Stock Requests
+9. Returns
+10. Daily Closing
+11. Reports
+12. Notifications
+13. Profile
+
+CASHIER NAVIGATION
+
+1. Dashboard
+2. Point of Sale
+3. Customers
+4. My Sales
+5. Returns and Exchanges
+6. Daily Closing
+7. Notifications
+8. Profile
+
+WAREHOUSE NAVIGATION
+
+1. Dashboard
+2. Inventory
+3. Stock Requests
+4. Stock Transfers
+5. Purchase Orders
+6. Goods Receiving
+7. Damaged Products
+8. Stock Movements
+9. Suppliers
+10. Reports
+11. Notifications
+12. Profile
+
+CUSTOMER NAVIGATION
+
+1. Store
+2. Categories
+3. Cart
+4. Orders
+5. Favorites
+6. Returns and Exchanges
+7. Notifications
+8. Profile
+
+Do not create separate sidebar pages for every product category.
+
+For example:
+
+- Blouses
+- Dresses
+- Pants
+- Shoes
+- Abayas
+
+must be category filters inside one Products page.
+
+==================================================
+11. LOGIN AND AUTHENTICATION
+==================================================
+
+Create one professional login page.
+
+Include:
+
+- Lucerne Boutique identity
+- username
+- password
+- show/hide password
+- remember username if appropriate
+- login button
+- loading state
+- clear validation
+- database connection error message
+- account locked message
+- inactive account message
+- password-change-required flow
+
+Do not require the user to choose their role before login.
+
+Detect the role from the authenticated account.
+
+Do not compare passwords using:
+
+- LOWER(password)
+- case-insensitive comparison
+- plain unsafe string concatenation
+
+Use BCrypt if dependencies allow it.
+
+If the current project stores plain-text passwords:
+
+- support a safe migration
+- migrate users gradually
+- document the migration
+- do not break existing accounts without instructions
+
+Track:
+
+- successful login
+- failed login
+- last login
+- failed login count
+- locked until
+- active status
+- password change required
+- account expiration
+- logout time
+- session start
+- session end
+
+Temporarily lock the account after a configurable number of failed attempts.
+
+==================================================
+12. APPLICATION SESSION
+==================================================
+
+Create one AppSession object containing:
+
+- user ID
+- username
+- role
+- permissions
+- employee ID
+- customer ID
+- branch ID
+- warehouse ID
+- login time
+
+Use it throughout the application.
+
+Do not repeatedly query login information from unrelated pages.
+
+Clear the session completely during logout.
+
+==================================================
+13. USER MANAGEMENT
+==================================================
+
+Create a professional Manage Users page for OWNER or authorized ADMIN users.
+
+Functions:
+
+- create user
+- edit user
+- activate user
+- deactivate user
+- lock user
+- unlock user
+- reset password
+- force password change
+- assign role
+- change role
+- assign branch
+- assign warehouse
+- link to employee
+- link to customer
+- set account expiration
+- view last login
+- view failed login count
+- view account creation date
+- view account update date
+- view creator
+- view last modifier
+- view account activity
+- deactivate instead of deleting historical accounts
+
+User filters:
+
+- username
+- full name
+- role
+- branch
+- warehouse
+- employee
+- customer
+- active/inactive
+- locked/unlocked
+- created date
+- last login date
+- never logged in
+- failed login attempts
+- password change required
+- expired accounts
+
+Summary cards:
+
+- total users
+- active users
+- inactive users
+- locked users
+- users logged in this month
+- users who never logged in
+- owners/admins
+- accounts requiring password change
+
+Charts:
+
+- users by role
+- users by branch
+- active versus inactive users
+- account creation by month
+- successful logins over time
+- failed logins over time
+
+Security rules:
+
+- do not allow the current owner to deactivate their own account
+- do not allow deletion or deactivation of the last active OWNER
+- do not allow managers to create OWNER accounts
+- do not allow cashiers to access this page
+- do not allow warehouse users to access this page
+- do not allow customers to access this page
+- do not allow unauthorized role escalation
+
+==================================================
+14. ROLES AND PERMISSIONS
+==================================================
+
+Create professional database permission management.
+
+Use tables such as:
+
+- roles
+- permissions
+- role_permissions
+- users
+- user_sessions
+- login_attempts
+- audit_logs
+
+Possible permissions:
+
+- VIEW_DASHBOARD
+- MANAGE_USERS
+- MANAGE_ROLES
+- MANAGE_PRODUCTS
+- VIEW_PRODUCT_COST
+- MANAGE_INVENTORY
+- CREATE_SALE
+- CANCEL_SALE
+- PROCESS_RETURN
+- APPROVE_RETURN
+- VIEW_ALL_BRANCHES
+- VIEW_BRANCH_SALES
+- MANAGE_EMPLOYEES
+- VIEW_SALARIES
+- MANAGE_EXPENSES
+- APPROVE_EXPENSES
+- MANAGE_DISCOUNTS
+- APPROVE_STOCK_REQUEST
+- MANAGE_WAREHOUSE
+- EXPORT_REPORTS
+- VIEW_NET_PROFIT
+- MANAGE_SETTINGS
+- VIEW_AUDIT_LOG
+- DATABASE_BACKUP
+- DATABASE_RESTORE
+
+Do not depend only on hiding pages.
+
+Sensitive service methods must verify authorization.
+
+==================================================
+15. GLOBAL ADVANCED FILTERING SYSTEM
+==================================================
+
+Advanced filtering is one of the most important requirements.
+
+Create reusable filtering components.
+
+Every major page must contain useful filters where applicable.
+
+Possible filters:
+
+- keyword search
+- ID search
+- date from
+- date to
+- today
+- yesterday
+- this week
+- last week
+- this month
+- last month
+- this quarter
+- this year
+- custom date range
+- branch
+- warehouse
+- category
+- subcategory
+- product
+- size
+- color
+- employee
+- cashier
+- manager
+- customer
+- supplier
+- payment method
+- status
+- minimum amount
+- maximum amount
+- minimum quantity
+- maximum quantity
+- active/inactive
+- stock status
+- online/in-store
+- delivery/pickup
+- sort field
+- ascending/descending
+- page size
+- pagination
+
+Requirements:
+
+- filters must work together
+- multiple filters must produce one correct SQL query
+- use PreparedStatement
+- never concatenate raw user input
+- use an “All” option
+- load ComboBox values from MySQL
+- show only relevant filters
+- show matching record count
+- include Apply Filters
+- include Clear Filters
+- include Refresh
+- include Export Filtered Results
+- preserve filters during refresh
+- use collapsible filter panels when there are many filters
+- use debounce for text search
+- perform filtering in SQL, not by loading everything into Java
+
+==================================================
+16. DASHBOARD DESIGN
+==================================================
+
+Every role must have a relevant dashboard.
+
+Dashboards must include:
+
+- summary cards
+- charts
+- recent records
+- warnings
+- quick actions
+- date period selector
+- refresh button
+- last refreshed time
+- loading indicator
+- empty state
+- database error state
+
+All values must come from MySQL.
+
+Do not use fake, random, or hardcoded dashboard numbers.
+
+==================================================
+17. OWNER DASHBOARD
+==================================================
+
+Summary cards:
+
+- sales today
+- sales this week
+- sales this month
+- sales this year
+- transactions today
+- transactions this month
+- average transaction value
+- gross profit this month
+- net profit this month
+- expenses this month
+- total products
+- low-stock products
+- out-of-stock products
+- pending orders
+- pending returns
+- pending stock requests
+- total customers
+- new customers this month
+
+Charts:
+
+- daily sales for current month
+- monthly sales for current year
+- sales versus previous period
+- revenue by branch
+- profit by branch
+- sales by category
+- transactions by payment method
+- sales by cashier
+- gross profit versus expenses
+- net profit trend
+- orders by status
+- inventory value by branch
+- top-selling products
+
+Tables:
+
+- recent transactions
+- top five products by quantity
+- top five products by revenue
+- top five customers by spending
+- low-stock products
+- pending orders
+- pending stock requests
+- recent expenses
+- recent returns
+
+Dashboard filters:
+
+- date range
+- branch
+- category
+- product
+- cashier
+- payment method
+- order type
+
+==================================================
+18. MANAGER DASHBOARD
+==================================================
+
+Show only the assigned branch unless permission allows more.
+
+Cards:
+
+- branch sales today
+- branch sales this month
+- transactions today
+- average transaction value
+- gross profit
+- low-stock count
+- out-of-stock count
+- pending orders
+- pending stock requests
+- returns this month
+
+Charts:
+
+- daily branch sales
+- branch sales by category
+- cashier performance
+- payment methods
+- top products
+- stock status
+- returns trend
+
+Tables:
+
+- recent branch transactions
+- low-stock items
+- pending orders
+- pending requests
+- employee performance
+
+==================================================
+19. CASHIER DASHBOARD
+==================================================
+
+Cards:
+
+- my sales today
+- my transactions today
+- cash payments
+- card payments
+- discounts given
+- returns total
+- expected cash
+- daily closing status
+
+Charts:
+
+- hourly sales today
+- daily sales this week
+- payment method distribution
+
+Tables:
+
+- recent sales
+- open returns
+- recent customers
+- incomplete closing tasks
+
+==================================================
+20. WAREHOUSE DASHBOARD
+==================================================
+
+Cards:
+
+- total warehouse products
+- total stock quantity
+- inventory cost value
+- low-stock items
+- out-of-stock items
+- pending requests
+- transfers today
+- damaged quantity
+- pending purchase orders
+
+Charts:
+
+- stock by category
+- inventory value by category
+- stock movement trend
+- received versus transferred stock
+- most-requested products
+- damaged products by category
+
+Tables:
+
+- pending requests
+- recent transfers
+- low-stock items
+- recent goods received
+- purchase orders
+
+==================================================
+21. CUSTOMER DASHBOARD
+==================================================
+
+Show only personal data.
+
+Include:
+
+- current orders
+- completed orders
+- pending returns
+- favorites count
+- recent purchases
+- recommended or recently viewed products if existing data supports it
+- order status overview
+
+Do not expose business financial information.
+
+==================================================
+22. PROFESSIONAL CHARTS
+==================================================
+
+Use JavaFX:
+
+- LineChart
+- BarChart
+- PieChart
+- AreaChart
+- StackedBarChart
+
+Use the correct chart type:
+
+- LineChart for trends
+- BarChart for comparisons and rankings
+- PieChart only for a small number of categories
+- StackedBarChart for grouped comparison
+- AreaChart only where it adds clear value
+
+Every chart must include:
+
+- professional title
+- subtitle or description where useful
+- axis labels
+- correct legend
+- tooltips with exact values
+- currency formatting
+- quantity formatting
+- date formatting
+- responsive sizing
+- empty-data message
+- loading state
+- error state
+- readable labels
+- logical sorting
+- real MySQL data
+
+Charts must update when filters change.
+
+Add where useful:
+
+- daily/weekly/monthly/yearly selector
+- branch selector
+- category selector
+- date range
+- export chart data
+- view detailed records button
+
+Use JavaFX Task or Service for expensive chart queries.
+
+Do not freeze the JavaFX Application Thread.
+
+==================================================
+23. PRODUCTS PAGE
+==================================================
+
+Create one professional Products page.
+
+Do not create separate pages for every category.
+
+Functions:
+
+- add product
+- edit product
+- view product
+- deactivate product
+- reactivate product
+- manage category
+- manage subcategory
+- manage sizes
+- manage colors
+- manage barcode
+- manage selling price
+- manage cost price
+- manage description
+- manage material
+- manage care instructions
+- manage image path
+- manage branch inventory
+- manage warehouse inventory
+- view stock history
+- view sales performance
+- view profit margin
+
+Filters:
+
+- product name
+- product ID
+- barcode
+- category
+- subcategory
+- size
+- color
+- minimum price
+- maximum price
+- minimum cost
+- maximum cost
+- minimum margin
+- maximum margin
+- branch
+- warehouse
+- active/inactive
+- available/unavailable
+- in stock
+- low stock
+- out of stock
+- date added
+- last updated
+- sort by name, price, cost, stock, margin, date
+
+Cards:
+
+- total products
+- active products
+- inactive products
+- low stock
+- out of stock
+- total inventory cost
+- retail inventory value
+- average margin
+
+Charts:
+
+- products by category
+- inventory quantity by category
+- inventory value by category
+- low stock by branch
+- active versus inactive products
+
+==================================================
+24. SALES AND TRANSACTIONS PAGE
+==================================================
+
+Create one complete sales page.
+
+Functions:
+
+- search transaction
+- view sale details
+- view sale items
+- print receipt
+- cancel sale when authorized
+- process return
+- process exchange
+- export transaction
+- export filtered sales
+- refresh
+
+Filters:
+
+- sale ID
+- receipt number
+- date range
+- branch
+- cashier
+- manager
+- customer
+- product
+- category
+- payment method
+- sale status
+- completed
+- cancelled
+- returned
+- partially returned
+- online
+- in-store
+- delivery
+- pickup
+- minimum total
+- maximum total
+- with discount
+- without discount
+- sort by date, total, profit, discount, cashier
+
+Cards:
+
+- revenue
+- transaction count
+- average transaction value
+- discounts
+- returned amount
+- cost of goods sold
+- gross profit
+- expenses
+- net profit
+- cash payments
+- card payments
+
+Charts:
+
+- revenue trend
+- transactions trend
+- revenue by branch
+- revenue by cashier
+- sales by category
+- payment distribution
+- sales status
+- online versus in-store
+- average transaction value
+
+==================================================
+25. POINT OF SALE
+==================================================
+
+Create a professional cashier POS.
+
+Include:
+
+- product search
+- barcode search
+- category filter
+- subcategory filter
+- product cards or professional table
+- product image where available
+- available sizes
+- available colors
+- current stock
+- quantity selector
+- add to cart
+- cart table
+- increase quantity
+- decrease quantity
+- remove item
+- clear cart
+- select customer
+- create customer
+- walk-in customer
+- apply discount
+- validate discount
+- subtotal
+- discount amount
+- tax if used
+- final total
+- payment method
+- paid amount
+- change amount
+- complete sale
+- cancel current sale
+- print receipt
+- new sale
+
+The sale process must use one database transaction:
+
+1. validate user permission
+2. validate stock
+3. insert sale
+4. insert sale items
+5. apply discount
+6. insert payment
+7. reduce inventory
+8. record stock movement
+9. create audit log
+10. commit
+
+Roll back everything if any step fails.
+
+Never allow negative stock.
+
+==================================================
+26. INVENTORY PAGE
+==================================================
+
+Functions:
+
+- view inventory
+- adjust quantity
+- transfer stock
+- view movement history
+- set reorder level
+- mark damaged stock
+- receive stock
+- export inventory
+- view product details
+
+Filters:
+
+- branch
+- warehouse
+- product
+- category
+- subcategory
+- size
+- color
+- stock status
+- minimum quantity
+- maximum quantity
+- reorder level
+- active/inactive
+- recently updated
+- with movement
+- without movement
+
+Cards:
+
+- total quantity
+- inventory cost value
+- retail value
+- low-stock count
+- out-of-stock count
+- overstock count
+- received this month
+- transferred this month
+- damaged quantity
+
+Charts:
+
+- stock by category
+- inventory value by category
+- inventory value by branch
+- low stock by branch
+- movement trend
+- received versus sold
+- damaged stock by category
+
+==================================================
+27. CUSTOMERS PAGE
+==================================================
+
+Functions:
+
+- create customer
+- edit customer
+- view profile
+- view order history
+- view sale history
+- view returns
+- view favorite products
+- deactivate/reactivate customer
+- export customers
+
+Filters:
+
+- customer ID
+- name
+- phone
+- email
+- branch
+- registration date
+- last purchase date
+- active/inactive
+- with orders
+- without orders
+- minimum spending
+- maximum spending
+- minimum order count
+- maximum order count
+- VIP status if implemented
+
+Cards:
+
+- total customers
+- new this month
+- active customers
+- purchased this month
+- repeat customers
+- no-purchase customers
+- average spending
+- highest spending
+
+Charts:
+
+- new customers by month
+- customer spending
+- customers by branch
+- repeat versus new
+- top customers
+
+==================================================
+28. EMPLOYEES PAGE
+==================================================
+
+Functions:
+
+- create employee
+- edit employee
+- assign branch
+- assign role
+- activate/deactivate
+- salary information with permission
+- performance details
+- attendance information only if supported
+- link user account
+- export employees
+
+Filters:
+
+- employee name
+- employee ID
+- username
+- role
+- branch
+- status
+- hire date
+- salary range
+- phone
+- email
+- with sales
+- without recent activity
+
+Cards:
+
+- total employees
+- active employees
+- inactive employees
+- employees by branch
+- employees by role
+- new employees this year
+
+Charts:
+
+- employees by role
+- employees by branch
+- active versus inactive
+- cashier sales performance
+- monthly sales by employee
+
+==================================================
+29. ORDERS PAGE
+==================================================
+
+Functions:
+
+- view order
+- update status
+- confirm order
+- process order
+- mark ready
+- assign delivery
+- mark delivered
+- cancel order
+- print order
+- view timeline
+- export orders
+
+Filters:
+
+- order ID
+- customer
+- date range
+- branch
+- status
+- payment status
+- delivery type
+- delivery status
+- product
+- category
+- assigned employee
+- minimum total
+- maximum total
+
+Cards:
+
+- total orders
+- pending
+- confirmed
+- processing
+- ready
+- delivered
+- cancelled
+- returned
+
+Charts:
+
+- orders by status
+- orders over time
+- order value over time
+- delivery versus pickup
+- orders by category
+
+==================================================
+30. EXPENSES PAGE
+==================================================
+
+Functions:
+
+- add expense
+- edit expense
+- approve expense
+- reject expense
+- view receipt path
+- mark recurring
+- export expenses
+
+Filters:
+
+- date range
+- category
+- branch
+- employee
+- payment method
+- minimum amount
+- maximum amount
+- approved
+- pending
+- rejected
+- recurring
+- non-recurring
+- description
+
+Cards:
+
+- total expenses
+- expenses this month
+- largest expense
+- average expense
+- pending expenses
+- recurring expenses
+
+Charts:
+
+- expenses by month
+- expenses by category
+- expenses by branch
+- revenue versus expenses
+- expenses versus net profit
+
+==================================================
+31. RETURNS AND EXCHANGES
+==================================================
+
+Functions:
+
+- create return request
+- create exchange request
+- approve
+- reject
+- process refund
+- replace item
+- restore inventory when appropriate
+- record reason
+- record condition
+- record audit log
+
+Filters:
+
+- request ID
+- sale ID
+- customer
+- branch
+- product
+- cashier
+- request date
+- status
+- reason
+- return/exchange
+- refund method
+- amount range
+
+Charts:
+
+- returns by month
+- returns by product
+- returns by category
+- return reasons
+- return rate by branch
+- refund totals
+
+All return processing must use database transactions.
+
+==================================================
+32. STOCK REQUESTS
+==================================================
+
+Functions:
+
+- create request
+- approve
+- reject
+- partially approve
+- fulfill
+- cancel
+- view history
+- transfer requested items
+- audit approval
+
+Filters:
+
+- request ID
+- requesting branch
+- warehouse
+- product
+- category
+- request date
+- status
+- priority
+- requester
+- approver
+- fulfilled/unfulfilled
+- quantity range
+
+Charts:
+
+- requests by status
+- requests by branch
+- requested products
+- average approval time
+- fulfilled versus rejected
+
+==================================================
+33. SUPPLIERS AND PURCHASING
+==================================================
+
+Add professional modules when compatible with the project:
+
+Supplier Management:
+
+- add supplier
+- edit supplier
+- activate/deactivate
+- contact information
+- supplier products
+- purchase history
+- balance or notes if relevant
+
+Purchase Orders:
+
+- create purchase order
+- add items
+- supplier
+- expected date
+- status
+- total cost
+- approve
+- receive
+- cancel
+- print
+- export
+
+Goods Receiving:
+
+- receive quantities
+- compare ordered and received
+- update warehouse inventory
+- create stock movements
+- handle damaged items
+- use transactions
+
+Do not add empty supplier modules.
+
+==================================================
+34. DAILY CASH CLOSING
+==================================================
+
+Create a Daily Closing page.
+
+Fields:
+
+- date
+- branch
+- cashier
+- shift start
+- shift end
+- opening cash
+- expected cash
+- actual cash
+- difference
+- cash sales
+- card sales
+- refunds
+- cash movements
+- notes
+- approval status
+- manager approval
+
+Filters:
+
+- date range
+- cashier
+- branch
+- approved/unapproved
+- balanced
+- short
+- over
+
+Charts:
+
+- cash differences over time
+- difference by cashier
+- payment totals
+
+Prevent duplicate closing for the same cashier shift.
+
+==================================================
+35. FINANCIAL CALCULATIONS
+==================================================
+
+Calculate financial values correctly.
+
+Revenue:
+
+SUM of valid completed sale item amounts after applicable discounts.
+
+Cost of goods sold:
+
+SUM(product cost price × sold quantity), adjusted for valid returns.
+
+Gross profit:
+
+Revenue - cost of goods sold.
+
+Net profit:
+
+Gross profit
+- expenses
+- salaries if included in the selected report
+- refunds or other included operational costs
+
+Do not call revenue “net profit.”
+
+Display separately:
+
+- gross sales
+- discounts
+- net revenue
+- cost of goods sold
+- gross profit
+- expenses
+- salaries
+- refunds
+- net profit
+
+Document the exact formulas in the README.
+
+==================================================
+36. BEST SELLERS
+==================================================
+
+Calculate using real sale item quantities.
+
+Show:
+
+- rank
+- product name
+- category
+- units sold
+- revenue
+- gross profit
+- current stock
+- branch
+
+Filters:
+
+- today
+- this week
+- this month
+- this year
+- custom date range
+- branch
+- category
+- product
+
+Charts:
+
+- top products by quantity
+- top products by revenue
+- top products by gross profit
+
+==================================================
+37. REPORTS AND ANALYTICS
+==================================================
+
+Create a professional report center.
+
+Reports:
+
+1. Sales report
+2. Transaction report
+3. Revenue report
+4. Gross profit report
+5. Net profit report
+6. Expense report
+7. Product performance report
+8. Best-seller report
+9. Inventory report
+10. Low-stock report
+11. Stock movement report
+12. Branch performance report
+13. Cashier performance report
+14. Employee performance report
+15. Customer purchases report
+16. Customer spending report
+17. Order report
+18. Return report
+19. Stock request report
+20. Purchase order report
+21. Audit report
+22. Daily closing report
+
+Each report should have applicable filters.
+
+Support at least CSV export.
+
+Export only filtered results when requested.
+
+Use professional column names.
+
+Do not export:
+
+- passwords
+- password hashes
+- security tokens
+- sensitive internal fields
+
+==================================================
+38. AUDIT LOG
+==================================================
+
+Create an immutable audit log for important actions.
+
+Record:
+
+- login success
+- login failure
+- logout
+- user creation
+- user update
+- password reset
+- role change
+- account activation
+- account deactivation
+- product creation
+- product update
+- price change
+- cost change
+- inventory adjustment
+- stock transfer
+- sale creation
+- sale cancellation
+- return processing
+- expense creation
+- expense approval
+- discount creation
+- stock request approval
+- report export
+- settings change
+- backup action
+- restore action
+
+Fields:
+
+- audit ID
+- user ID
+- username
+- action
+- entity type
+- entity ID
+- old value where appropriate
+- new value where appropriate
+- description
+- timestamp
+- branch
+- session identifier
+- success/failure
+
+Filters:
+
+- date range
+- username
+- role
+- action
+- entity
+- entity ID
+- branch
+- keyword
+- success/failure
+
+Normal users must not edit or delete audit records.
+
+==================================================
+39. NOTIFICATION CENTER
+==================================================
+
+Create an in-app notification center.
+
+Notifications:
+
+- low stock
+- out of stock
+- pending stock request
+- pending return
+- pending order
+- failed transfer
+- large discount
+- account locked
+- unusual login activity
+- overdue purchase order
+- incomplete daily closing
+
+Features:
+
+- unread count
+- read/unread
+- priority
+- notification type
+- related entity
+- timestamp
+- open related page
+- mark as read
+- mark all as read
+- filter by type
+- filter by date
+- filter by priority
+
+Notifications must use real database conditions.
+
+==================================================
+40. SYSTEM SETTINGS
+==================================================
+
+Create a Settings page.
+
+Possible settings:
+
+- boutique name
+- currency
+- tax percentage
+- default low-stock level
+- receipt footer
+- company phone
+- company email
+- company address
+- return period
+- invoice prefix
+- order prefix
+- stock request prefix
+- maximum login attempts
+- password minimum length
+- default chart period
+- date format
+- time format
+
+Store settings in MySQL.
+
+Do not hardcode these values in many Java classes.
+
+==================================================
+41. DATABASE MAINTENANCE
+==================================================
+
+Create an authorized Database Maintenance page.
+
+Include:
+
+- test connection
+- database status
+- database name
+- MySQL version if available
+- backup database
+- backup location
+- backup history
+- restore database
+- strong restore confirmation
+- last successful backup
+- backup failure message
+
+Use mysqldump only when available.
+
+Do not pretend a backup succeeded if the command failed.
+
+Document backup requirements.
+
+==================================================
+42. TABLEVIEW QUALITY
+==================================================
+
+All tables must include:
+
+- meaningful column names
+- formatted dates
+- formatted currency
+- formatted quantity
+- readable widths
+- alternating rows
+- hover effect
+- selected row effect
+- empty-state text
+- status badge
+- action column
+- double-click details where useful
+- search
+- filters
+- refresh
+- pagination or server-side limit
+- export
+- confirmation before destructive actions
+
+Do not display raw internal IDs unless useful.
+
+Use IDs internally.
+
+==================================================
+43. FORMS AND DIALOGS
+==================================================
+
+Forms must be professional.
+
+Use:
+
+- GridPane or well-organized layout
+- grouped fields
+- clear labels
+- required indicators
+- helper text
+- validation messages
+- Save
+- Cancel
+- Reset where useful
+- loading state during save
+- disabled Save when invalid where appropriate
+
+Dialogs:
+
+- add
+- edit
+- details
+- confirmation
+- success
+- warning
+- error
+- delete/deactivate
+- password reset
+
+Do not use oversized or confusing forms.
+
+Use tabs for large forms.
+
+==================================================
+44. VALIDATION
+==================================================
+
+Validate:
+
+- required fields
+- duplicate usernames
+- duplicate barcode
+- duplicate email where required
+- phone format
+- email format
+- negative numbers
+- invalid prices
+- cost greater than selling price warning
+- invalid discount
+- discount greater than allowed
+- unavailable stock
+- zero quantity
+- invalid date range
+- missing branch
+- missing warehouse
+- missing category
+- missing employee
+- missing customer
+- invalid payment
+- paid amount below cash total
+- duplicate daily closing
+- duplicate account link
+- account expiration date
+- password confirmation
+- password minimum length
+- username length
+
+Show friendly messages.
+
+Do not show raw SQL errors to normal users.
+
+==================================================
+45. DATABASE DESIGN
+==================================================
+
+Improve the MySQL schema professionally.
+
+Use:
+
+- primary keys
+- foreign keys
+- indexes
+- unique constraints
+- check constraints where supported
+- created_at
+- updated_at
+- created_by
+- updated_by
+- active status
+- soft deletion where history is important
+- proper decimal types for money
+- proper date and timestamp types
+- proper status fields
+- reference numbering
+- normalized relationships
+
+Avoid duplicate tables representing the same thing.
+
+Preserve 3NF where appropriate.
+
+==================================================
+46. DATABASE CONNECTION RULES
+==================================================
+
+Use only one database connection class.
+
+Requirements:
+
+- one configuration location
+- configurable JDBC URL
+- configurable username
+- configurable password
+- database connection test
+- clear connection errors
+- try-with-resources
+- no leaked ResultSet
+- no leaked PreparedStatement
+- no leaked Connection
+- PreparedStatement for user values
+- no raw user input in SQL
+- no unnecessary global connection kept open forever
+
+==================================================
+47. TRANSACTIONS
+==================================================
+
+Use transactions for:
+
+- sale creation
+- sale cancellation
+- returns
+- exchanges
+- stock transfer
+- stock request approval
+- stock receipt
+- purchase order receiving
+- inventory adjustment
+- daily closing when multiple tables are changed
+
+Use:
+
+- setAutoCommit(false)
+- commit
+- rollback
+- proper exception handling
+- restore auto-commit safely
+
+==================================================
+48. TRIGGERS AND MYSQL ERROR 1442
+==================================================
+
+Review all triggers carefully.
+
+Avoid triggers that:
+
+- update the same table that caused the trigger
+- call procedures that update the same table
+- create circular updates
+- cause MySQL Error 1442
+- duplicate Java service logic
+
+Use triggers only where they are genuinely safe and valuable.
+
+Prefer clear Java service transactions for complex business logic.
+
+==================================================
+49. DATABASE VIEWS
+==================================================
+
+Create useful views where appropriate:
+
+- current inventory
+- low stock
+- monthly sales
+- daily sales
+- product performance
+- branch performance
+- cashier performance
+- customer statistics
+- order statistics
+- return statistics
+- monthly gross profit
+- monthly net profit
+
+Do not create unnecessary views.
+
+Ensure Java queries match the final view columns.
+
+==================================================
+50. PERFORMANCE
+==================================================
+
+The project must remain responsive with:
+
+- 1,000 products
+- 10,000 sales
+- 30,000 sale items
+- 2,000 customers
+- 100 employees
+- multiple branches
+- multiple warehouses
+
+Use:
+
+- indexes
+- pagination
+- LIMIT and OFFSET
+- server-side filtering
+- efficient aggregate SQL
+- selected columns instead of SELECT *
+- JavaFX Task
+- loading indicators
+- cancellation of outdated searches where reasonable
+- batch insert where appropriate
+- no loading all records before filtering
+
+==================================================
+51. ERROR HANDLING
+==================================================
+
+Handle:
+
+- database unavailable
+- invalid configuration
+- connection timeout
+- empty result
+- null values
+- missing relationship
+- duplicate key
+- foreign key error
+- transaction failure
+- file export failure
+- print failure
+- backup failure
+- invalid session
+- unauthorized action
+
+Technical errors may be logged.
+
+Users must receive friendly messages.
+
+Do not only call printStackTrace().
+
+==================================================
+52. LOGGING
+==================================================
+
+Add reasonable application logging.
+
+Log:
+
+- startup
+- shutdown
+- database connection failure
+- unexpected exceptions
+- transaction rollback
+- export failure
+- backup failure
+- major system errors
+
+Do not log:
+
+- passwords
+- password hashes
+- database passwords
+- full security tokens
+
+==================================================
+53. FINAL SQL FILE
+==================================================
+
+Create:
+
+lucerne_demo_final.sql
+
+The SQL file must contain:
+
+1. Database selection or creation
+2. Tables in dependency order
+3. Primary keys
+4. Foreign keys
+5. Unique constraints
+6. Check constraints
+7. Indexes
+8. Views
+9. safe triggers only
+10. safe stored procedures only
+11. required permissions-related data
+12. optional sample data clearly separated
+13. schema migration section where necessary
+14. no conflicting duplicate table definitions
+15. no hidden schema creation inside Java UI methods
+
+Keep the SQL language and naming style compatible with the existing project unless an improvement is required.
+
+==================================================
+54. SAMPLE DATA
+==================================================
+
+Provide optional realistic sample data for testing.
+
+Include:
+
+- multiple branches
+- warehouse
+- users for each role
+- employees
+- customers
+- categories
+- subcategories
+- products
+- sizes
+- colors
+- inventory
+- sales
+- sale items
+- expenses
+- orders
+- returns
+- stock requests
+- suppliers
+- purchase orders
+- notifications
+
+Mark the section clearly as optional.
+
+Do not overwrite real data automatically.
+
+==================================================
+55. RECEIPT AND PRINTING
+==================================================
+
+Create professional receipts containing:
+
+- boutique name
+- receipt number
+- date
+- branch
+- cashier
+- customer if selected
+- products
+- size
+- color
+- quantity
+- unit price
+- discount
+- subtotal
+- tax if applicable
+- total
+- payment method
+- paid amount
+- change
+- receipt footer
+
+Support print preview or printable output where practical.
+
+==================================================
+56. EXPORT
+==================================================
+
+Support CSV export for important pages.
+
+Requirements:
+
+- export filtered results
+- choose file location
+- proper headings
+- proper date format
+- proper currency format
+- UTF-8
+- success message
+- failure message
+- no passwords
+- no password hashes
+
+==================================================
+57. CODE QUALITY
+==================================================
+
+Requirements:
+
+- meaningful class names
+- meaningful method names
+- meaningful variable names
+- manageable class sizes
+- reusable components
+- reusable DAO logic
+- reusable validation
+- no duplicate SQL
+- no duplicate styling
+- no unused imports
+- no dead code
+- no commented-out large blocks
+- no unfinished TODO
+- no empty event handlers
+- no placeholder methods
+- comments only when logic is not obvious
+- understandable university-level Java code
+- professional but not unnecessarily over-engineered
+
+==================================================
+58. README
+==================================================
+
+Create a complete README containing:
+
+- project overview
+- major features
+- roles
+- permissions
+- project structure
+- database requirements
+- MySQL setup
+- SQL import instructions
+- JDBC configuration
+- Java version
+- JavaFX setup
+- MySQL Connector/J setup
+- BCrypt dependency if used
+- compile instructions
+- run instructions
+- default sample users
+- financial formulas
+- backup instructions
+- export instructions
+- troubleshooting
+- screenshots list if screenshots are generated
+
+==================================================
+59. CHANGELOG
+==================================================
+
+Create a CHANGELOG containing:
+
+- removed pages
+- merged pages
+- repaired features
+- new pages
+- new charts
+- new filters
+- database changes
+- security changes
+- architecture changes
+- known limitations if any
+
+==================================================
+60. TESTING CHECKLIST
+==================================================
+
+Create a testing checklist for:
+
+- project compilation
+- SQL import
+- database connection
+- OWNER login
+- ADMIN login if used
+- MANAGER login
+- CASHIER login
+- WAREHOUSE login
+- CUSTOMER login
+- invalid login
+- locked account
+- inactive account
+- dashboard loading
+- dashboard filters
+- charts with data
+- charts without data
+- product creation
+- product update
+- product deactivation
+- barcode duplication
+- inventory adjustment
+- stock transfer
+- sale creation
+- sale rollback
+- insufficient stock
+- receipt generation
+- return processing
+- exchange processing
+- customer creation
+- employee creation
+- user creation
+- role restrictions
+- permission restrictions
+- order status update
+- expense approval
+- stock request approval
+- purchase order receipt
+- daily closing
+- audit log
+- notifications
+- CSV export
+- backup
+- logout
+- empty database state
+- database disconnection
+- invalid input
+
+==================================================
+61. FINAL AUTOMATED REVIEW
+==================================================
+
+Before returning the project:
+
+1. Compile all Java files.
+2. Fix all compilation errors.
+3. Check imports.
+4. Check package names.
+5. Check all CSS resource paths.
+6. Check all image paths.
+7. Check all SQL queries.
+8. Compare every Java query with the final SQL schema.
+9. Check every database column name.
+10. Check every foreign key.
+11. Check every PreparedStatement parameter.
+12. Search for TODO.
+13. Search for placeholder.
+14. Search for empty button handlers.
+15. Search for duplicate database connection classes.
+16. Search for plain SQL concatenation.
+17. Search for raw password comparison.
+18. Search for unauthorized page access.
+19. Test combined filters.
+20. Test chart refresh.
+21. Test transactions.
+22. Test rollback.
+23. Test role isolation.
+24. Test branch isolation.
+25. Test warehouse isolation.
+26. Test cashier isolation.
+27. Test customer isolation.
+28. Verify export.
+29. Verify README.
+30. Verify final ZIP contents.
+
+==================================================
+62. FINAL DELIVERABLES
+==================================================
+
+Return:
+
+1. Complete corrected Java project
+2. Complete source code
+3. JavaFX CSS files
+4. Required resource files
+5. Final MySQL SQL file
+6. Optional sample data
+7. README
+8. CHANGELOG
+9. TESTING_CHECKLIST
+10. database configuration example
+11. one final ZIP file
+
+Do not return only selected snippets.
+
+Do not omit files because the answer is long.
+
+Do not provide only explanations.
+
+Do not claim completion unless the project compiles.
+
+==================================================
+63. CRITICAL FINAL REQUIREMENTS
+==================================================
+
+The project is considered complete only when:
+
+- it compiles
+- it connects to MySQL
+- the Java code matches the SQL schema
+- all roles can log in correctly
+- permissions are enforced
+- combined filters work
+- charts use real MySQL data
+- charts update after filters
+- user management works
+- product management works
+- inventory management works
+- sales transactions work
+- stock is updated safely
+- returns work
+- expenses work
+- orders work
+- reports work
+- audit logs work
+- notifications work
+- exports work
+- transactions roll back correctly
+- no button is empty
+- no page is a placeholder
+- no dashboard contains fake data
+- no administrative page is accessible to unauthorized users
+- the final project is returned as a working ZIP
+
+Do not ask me to perform the coding manually.
+
+Inspect, modify, test, fix, and return the complete project.

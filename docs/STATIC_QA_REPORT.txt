@@ -1,0 +1,26 @@
+LUCERNE BOUTIQUE PROFESSIONAL — STATIC QA REPORT
+Date: 2026-06-20
+
+PASS  Java 21 source compilation against API-compatible compile stubs
+PASS  55 active Java source files compile with zero warnings under -Xlint:unchecked
+PASS  49 SQL tables parsed
+PASS  13 SQL views present
+PASS  2 safe BEFORE UPDATE timestamp triggers present
+PASS  0 Java/SQL INSERT or UPDATE column-reference mismatches detected
+PASS  1 active database connection class
+PASS  0 TODO/FIXME/placeholder markers in active source/resources
+PASS  0 empty event handlers detected
+PASS  0 printStackTrace calls in active source
+PASS  60 non-empty valid PNG product images
+PASS  External database config uses CHANGE_ME rather than a real password
+PASS  BCrypt demo hash verified for Lucerne@123 with htpasswd
+PASS  Full, schema-only, and optional sample-data SQL files end with FK checks enabled
+PASS  Original upload preserved in backup/original_project
+
+RUNTIME TESTS REQUIRED ON TARGET COMPUTER
+- Maven dependency resolution and real OpenJFX compilation
+- MySQL 8 import and Connector/J query execution
+- JavaFX visual/keyboard interaction
+- InnoDB commit/rollback acceptance tests
+- OS printer/file chooser behavior
+- mysql/mysqldump backup and restore

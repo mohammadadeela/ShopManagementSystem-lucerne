@@ -1,0 +1,20 @@
+package com.lucerne.ui;
+
+import com.lucerne.app.AppSession;
+import com.lucerne.dao.QueryDAO;
+import com.lucerne.ui.components.LoadingPane;
+import com.lucerne.util.AlertUtil;
+import javafx.concurrent.Task;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import java.util.*;
+
+public final class SettingsView extends StackPane {
+    private final QueryDAO dao=new QueryDAO();private final GridPane grid=new GridPane();private final LoadingPane loading=new LoadingPane();private final Map<String,TextField> inputs=new LinkedHashMap<>();
+    private final LinkedHashMap<String,String> labels=new LinkedHashMap<>();
+    public SettingsView(){labels.put("boutique_name","Boutique name");labels.put("currency","Currency code");labels.put("tax_percentage","Tax percentage");labels.put("default_low_stock_level","Default low-stock level");labels.put("receipt_footer","Receipt footer");labels.put("company_phone","Company phone");labels.put("company_email","Company email");labels.put("company_address","Company address");labels.put("return_period_days","Return period (days)");labels.put("invoice_prefix","Invoice prefix");labels.put("order_prefix","Order prefix");labels.put("stock_request_prefix","Stock request prefix");labels.put("maximum_login_attempts","Maximum login attempts");labels.put("login_lock_minutes","Login lock duration (minutes)");labels.put("password_minimum_length","Minimum password length");labels.put("default_chart_period","Default chart period");labels.put("date_format","Date format");labels.put("time_format","Time format");getChildren().addAll(build(),loading);load();}
+    private VBox build(){VBox root=new VBox(18);root.setPadding(new Insets(24));Label title=new Label("System Settings");title.getStyleClass().add("page-title");Label desc=new Label("Centralized values used by security, receipts, reports and operational workflows.");desc.getStyleClass().add("page-description");grid.setHgap(16);grid.setVgap(12);grid.setPadding(new Insets(18));int row=0;for(var entry:labels.entrySet()){TextField field=new TextField();inputs.put(entry.getKey(),field);grid.addRow(row++,new Label(entry.getValue()),field);}Button save=new Button("Save settings");save.getStyleClass().add("primary-button");save.setOnAction(e->save());Button refresh=new Button("Reload");refresh.setOnAction(e->load());HBox actions=new HBox(10,save,refresh);VBox card=new VBox(12,new ScrollPane(grid),actions);card.getStyleClass().add("content-card");card.setPadding(new Insets(14));root.getChildren().addAll(title,desc,card);VBox.setVgrow(card,Priority.ALWAYS);return root;}
+    private void load(){loading.show("Loading settings…");Task<List<Map<String,Object>>> t=new Task<>(){protected List<Map<String,Object>> call()throws Exception{return dao.queryAll("SELECT SettingKey,SettingValue FROM system_settings ORDER BY SettingKey",List.of());}};t.setOnSucceeded(e->{for(Map<String,Object> row:t.getValue()){TextField f=inputs.get(String.valueOf(row.get("SettingKey")));if(f!=null)f.setText(String.valueOf(row.get("SettingValue")));}loading.hide();});t.setOnFailed(e->{loading.hide();AlertUtil.error("Settings unavailable","The settings table could not be loaded.");});Thread x=new Thread(t);x.setDaemon(true);x.start();}
+    private void save(){if(!AppSession.hasPermission("MANAGE_SETTINGS")){AlertUtil.error("Not authorized","Your account cannot modify system settings.");return;}loading.show("Saving settings…");Task<Void> t=new Task<>(){protected Void call()throws Exception{for(var entry:inputs.entrySet())dao.update("INSERT INTO system_settings(SettingKey,SettingValue,UpdatedBy,UpdatedAt) VALUES(?,?,?,NOW()) ON DUPLICATE KEY UPDATE SettingValue=VALUES(SettingValue),UpdatedBy=VALUES(UpdatedBy),UpdatedAt=NOW()",List.of(entry.getKey(),entry.getValue().getText(),AppSession.current().userId()));return null;}};t.setOnSucceeded(e->{loading.hide();AlertUtil.info("Settings saved","Changes are stored in MySQL.");});t.setOnFailed(e->{loading.hide();AlertUtil.error("Save failed","Settings could not be saved.");});Thread x=new Thread(t);x.setDaemon(true);x.start();}
+}
